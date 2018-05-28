@@ -25,6 +25,16 @@ if(isset($_COOKIE['remember'])){
         }
     }
 }
+/**************************************************************************************/
+//If the image is successfully uploaded
+if ($_SESSION['upload'] === TRUE && $_SESSION['is_admin'] === 0) {
+    $message = <<<HERE
+Image name {$names['base']} is Uploaded.
+HERE;
+    include "views/upload.html.php";
+    unset($_SESSION['upload']);
+    exit();
+}
 
 //Arrival link is clicked, session is employee, go to the arrival page
 if (isset($_GET['arrival-page']) && $_SESSION['is_admin'] === 0) {

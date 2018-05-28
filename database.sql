@@ -34,9 +34,10 @@ CREATE TABLE employee_departure(
 -- Create photo upload table
 CREATE TABLE photo_upload(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  photo_name VARCHAR(500),
+  present_name VARCHAR(200) NOT NULL UNIQUE,
+  base_name VARCHAR(200) NOT NULL,
+  user_id INT NOT NULL,
   upload_epoch DATETIME NOT NULL,
-  user_id INT NOT NULL UNIQUE,
   FOREIGN KEY (user_id) REFERENCES employee_info(id)
 )DEFAULT CHARACTER SET UTF8 ENGINE=InnoDB;
 
@@ -45,7 +46,6 @@ CREATE TABLE admin (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   admin_user VARCHAR(255) NOT NULL UNIQUE ,
   admin_pass VARCHAR (255) NOT NULL,
-  admin_email VARCHAR(255) DEFAULT NULL,
   entry_date DATETIME NOT NULL
 )DEFAULT CHARACTER SET UTF8 ENGINE=InnoDB;
 
@@ -56,12 +56,16 @@ CREATE TABLE login_info(
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES employee_info(id)
 ) DEFAULT CHARACTER SET UTF8 ENGINE=InnoDB;
-
+-- Create email table
+CREATE TABLE email (
+    id INT NOT NULL AUTO_INCREMENT,
+    active_email VARCHAR(50) NOT NULL,
+    PRIMARY KEY(id)
+    ) DEFAULT CHARACTER SET UTF8 ENGINE= InnoDB;
 -- Insert the test admin
 INSERT INTO admin SET
  admin_user = "deep",
  admin_pass = '$2y$10$KPrQmNIN7.COuzGkONqpbuKxJeiSdQYeA6AOG./3UAl4MG0nAmlDe',
- admin_email = 'emergepropertyservices@gmail.com',
  entry_date = now();
 
 -- set time in the database
@@ -75,4 +79,8 @@ DELETE FROM login_info;
 DELETE FROM employee_arrival;
 DELETE FROM employee_info;
 
+
+-- inser into photo
+INSERT INTO photo_upload (present_name, base_name, upload_epoch, user_id)
+                  VALUES ("deepghd","rahman",now(),"145");
 

@@ -3,6 +3,10 @@ include "html/header.html";
 if (isset($_SESSION['msg'])) {
     echo "<h5 style='color: #80bdff; text-align: center;'>".$_SESSION['msg']."</h5><br>";
     echo "<h5 style='color: #80bdff; text-align: center;'>Admin ID:".$_SESSION['id']."</h5><br>";
+
+}
+if (isset($_SESSION['status'])){
+    echo "<div class='alert alert-danger' role='alert' style='width: 400px;margin: auto'><p align='center'>STATUS :{$_SESSION['status']}</p></div>;";
 }
 if(isset($message)){
     echo "<div class='alert alert-danger' role='alert' style='width: 400px;margin: auto'><p align='center'>{$message}</p></div>";
@@ -58,13 +62,13 @@ if(isset($message)){
                 <hr>
                 <div class="form-row form-group">
                     <div class="col-sm-6">
-                        <input type="text" name="emp_username" class="form-control" placeholder="Assign Username" required>
+                        <input type="text" name="emp_username" class="form-control" placeholder="Username (Do not use previously assigned one)" required>
                     </div>
                     <div class="col-sm-6">
-                        <input type="password" name="emp_password" class="form-control" placeholder="Assign Password" required>
+                        <input type="password" name="emp_password" class="form-control" placeholder="Password" required>
                     </div>
-                    <div class="col-sm-4 offset-sm-4 pt-2">
-                        <input type="text" name="id" class="form-control" placeholder="Employee ID" required>
+                    <div class="col-sm-6 offset-sm-3 pt-2">
+                        <input type="text" name="id" class="form-control" placeholder="Employee ID (Do not use previously assigned one)" required>
                     </div>
                 </div>
             </form>

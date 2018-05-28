@@ -18,7 +18,7 @@ $arvl = new TimeStamp();
 if (isset($_POST['arrival'])){
     $arvl->setTime($_SESSION['id'],"employee_arrival","arrival",$db);
     $arrive=$arvl->getTime($_SESSION['id'],'employee_arrival',"arrival",$db);
-    $_SESSION['msg'] = "Arrival Timestamp:  {$arrive}";
+    $_SESSION['report'] = "Arrival Timestamp:  {$arrive}";
 //    Create a new instance of RetrieveEmailInfo
     $ret_v = new RetrieveEmailInfo($db);
 //    Define variables for retrieve info
@@ -37,14 +37,14 @@ if (isset($_POST['arrival'])){
     $des = $emp_info['designation'];
 //    retrieve the admin email address
     try{
-        $sql = "SELECT admin_email FROM admin WHERE id = 1";
+        $sql = "SELECT active_email FROM email WHERE id = 1";
         $result = $db->query($sql);
         foreach ($result as $item){$email_array = $item;}
     }catch (PDOException $exception){
 
     }
 //    Email address
-    $to = $email_array['admin_email'];
+    $to = $email_array['active_email'];
 //    Subject
     $subject ="Arrival Timestamp of {$name_f} {$name_m} {$name_l}";
 //    Message
