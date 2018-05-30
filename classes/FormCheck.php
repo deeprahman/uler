@@ -5,9 +5,7 @@
  * Date: 5/27/2018
  * Time: 6:27 PM
  */
-
 namespace classes;
-
 /**
  * Class FormCheck
  * @package classes
@@ -54,7 +52,6 @@ HERE;
         }
         return False;
     }
-
     /**
      * Validate an Email address
      * @param string $email

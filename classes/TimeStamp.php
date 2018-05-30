@@ -9,7 +9,7 @@ namespace classes;
  */
 class TimeStamp
 {
-    public function setTime(int $user_id,string $table,string $field, object $db)
+    public function setTime($user_id,string $table,string $field, object $db)
     {
         $sql = "INSERT INTO {$table} SET {$field} = now(), user_id = {$user_id}";
 
@@ -21,7 +21,7 @@ class TimeStamp
         return $affected_row;
     }
 
-    public function getTime(int $user_id,string $table,string $field, object $db)
+    public function getTime($user_id,string $table,string $field, object $db)
     {
         $sql = "select {$field} FROM {$table} 
 WHERE user_id ={$user_id} AND id =(SELECT MAX(id) FROM {$table} WHERE user_id = {$user_id})";

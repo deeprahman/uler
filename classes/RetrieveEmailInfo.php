@@ -15,7 +15,7 @@ class RetrieveEmailInfo
     }
 
 //    Retreive the employee info
-    public function retrieveInfo(string $table, array $fields,int $user_id)
+    public function retrieveInfo(string $table, array $fields, $user_id)
     {
         $comma_sep_field = implode(",", $fields);
         $sql = "SELECT {$comma_sep_field} FROM {$table} WHERE id = {$user_id}";

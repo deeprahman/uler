@@ -1,18 +1,19 @@
 <?php
 include "html/header.html";
 if (isset($_SESSION['msg'])) {
-    echo "<h3 style='color: #80bdff; text-align: center;border: 1px;'>".$_SESSION['msg']."</h3><br>";
-    echo "<h3 style='color: #80bdff; text-align: center;border: 1px;'> ID:".$_SESSION['id']."</h3><br>";
+    echo "<h3 style='color: #80bdff; text-align: center;border: 1px;'>" . $_SESSION['msg'] . "</h3><br>";
+    echo "<h3 style='color: #80bdff; text-align: center;border: 1px;'> ID:" . $_SESSION['id'] . "</h3><br>";
 }
-if(isset($message)){
+if (isset($message)) {
     echo "<div class='alert alert-danger' role='alert' style='width: 400px;margin: auto'><p align='center'>{$message}</p></div>";
 }
 ?>
     <div class="container-fluid col-md-8 offset-md-2 alert">
 
-
         <div class="card w-50" style="margin: auto;">
+
             <div class="h3 text-center pt-2 pb-2">Log In</div>
+
             <!--        Form starts-->
             <form class="p-4" action="auth.php" method="post">
                 <div class="form-row form-group pl-4">

@@ -39,7 +39,7 @@ if (!$check->checkLength($min_p_word, $emp_info['emp_password'])) {
 
     $p_word = FALSE; //indicator
 }
-//Only execute, if password and username satisfy the mimimum length.
+//Only execute, if password and username satisfy the minimum length.
 if (!isset($u_name) && !isset($p_word)) {
 //    For checking username
     $table = "login_info";

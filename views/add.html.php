@@ -3,7 +3,6 @@ include "html/header.html";
 if (isset($_SESSION['msg'])) {
     echo "<h5 style='color: #80bdff; text-align: center;'>".$_SESSION['msg']."</h5><br>";
     echo "<h5 style='color: #80bdff; text-align: center;'>Admin ID:".$_SESSION['id']."</h5><br>";
-
 }
 if (isset($_SESSION['status'])){
     echo "<div class='alert alert-danger' role='alert' style='width: 400px;margin: auto'><p align='center'>STATUS :{$_SESSION['status']}</p></div>;";
